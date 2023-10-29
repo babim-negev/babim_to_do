@@ -29,3 +29,4 @@ class tasks(SerialMixIn, Base):
     name = Column(String)
     completed = Column(Boolean, default=False)
 
+
