@@ -2,9 +2,7 @@ import os
 from dotenv import load_dotenv
 import psycopg2
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.orm import declarative_base
-
+from sqlalchemy.orm import sessionmaker, declarative_base
 
 load_dotenv()
 
@@ -31,6 +29,8 @@ async def get_db():
         yield db
     finally:
         db.close()
+
+
 def connect_to_database():
     try:
         connection = psycopg2.connect(
@@ -45,6 +45,7 @@ def connect_to_database():
     except Exception as e:
         print(f"Ошибка при подключении к базе данных: {e}")
         return None
+
 
 if __name__ == "__main__":
     connection = connect_to_database()
