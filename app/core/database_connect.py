@@ -5,10 +5,9 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm import declarative_base
 
-# ЗАГРУЖАЕМ ДАННЫЕ ИЗ .ENV
+
 load_dotenv()
 
-# ИЗВЛЕКАЕМ ДАННЫЕ
 db_name = os.getenv("POSTGRES_DB")
 db_host = os.getenv("POSTGRES_HOST")
 db_port = os.getenv("POSTGRES_PORT")
@@ -32,9 +31,6 @@ async def get_db():
         yield db
     finally:
         db.close()
-
-
-# ФУНЦИЦИЯ ДЛЯ ПОДКЛЮЧЕНИЯ
 def connect_to_database():
     try:
         connection = psycopg2.connect(
@@ -50,8 +46,6 @@ def connect_to_database():
         print(f"Ошибка при подключении к базе данных: {e}")
         return None
 
-
-# Используйте этот код для тестирования подключения к базе данных
 if __name__ == "__main__":
     connection = connect_to_database()
 

@@ -1,8 +1,8 @@
 import uvicorn
 from fastapi import FastAPI
 
-from app.core.database import engine
-from app.models.database_model import Base
+from app.core.database_connect import engine, Base
+
 
 app = FastAPI()
 
